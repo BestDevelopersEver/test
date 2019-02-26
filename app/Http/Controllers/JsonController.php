@@ -44,4 +44,27 @@ class JsonController extends Controller
             return "saved";
         }
     }
+
+    public function insert2()
+    {
+        //$value = session('json');
+
+        $true = json_decode('[{"id":1,"name":"Kip","email":"kip@kip.com","address":"KIP","created_at":"2018-09-06 09:49:18","updated_at":"2018-09-06 09:49:18"},{"id":2,"name":"dang!","email":"dang@deng.deng","address":"DENg","created_at":"2018-09-06 09:49:39","updated_at":"2018-09-06 09:49:39"}]',true);
+
+        foreach($true as $row)
+        {
+
+            $newuser = new Newuser;
+
+            $newuser->name=$row['name'];
+
+            $newuser->email=$row['email'];
+
+            $newuser->address= $row['address'];
+
+            $newuser->save();
+
+            return "saved";
+        }
+    }
 }
